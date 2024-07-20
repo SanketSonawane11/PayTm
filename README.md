@@ -13,9 +13,9 @@ cd ../Backend
 npm install
 ```
 
-### 1. Run Frontend:
+### 1. Run the project:
 
-Navigate to root folder (PayTm)
+Navigate to the root folder (PayTm)
 
 ```sh
 npm run frontend
