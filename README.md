@@ -1,7 +1,13 @@
-##PayTm
-##To setup this project
-First go to both folders (ie. Fronetne & Backend) and type
-npm i
-##Now to run:
-#1. Backend -> npm run backend
-#2. Frontend -> npm run fronetend
+# PayTm
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+Navigate to both folders (`Frontend` and `Backend`) and run the following command in each folder to install the necessary dependencies:
+
+```sh
+cd Frontend
+npm install
+cd ../Backend
+npm install
