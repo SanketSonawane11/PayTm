@@ -1,4 +1,4 @@
-####PayTm
+##PayTm
 ##To setup this project
 First go to both folders (ie. Fronetne & Backend) and type
 npm i
