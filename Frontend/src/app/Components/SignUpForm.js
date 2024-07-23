@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import FormField from './FormField';
 import FormButton from './FormButton';
 import Spinner from './Spinner';
@@ -21,10 +21,7 @@ function SignUpForm() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        setFormData({ ...formData, [name]: value });
     };
 
     const [loading, setLoading] = useState(false);
@@ -40,10 +37,6 @@ function SignUpForm() {
     };
 
     let token;
-
-    useEffect(() => {
-        if (localStorage.getItem("Token")) router.push('/');
-    }, [token])
 
     const createUser = async () => {
         try {
@@ -66,15 +59,18 @@ function SignUpForm() {
                 role: 'user'
             });
             if (response.ok) {
-                toast.success("Account created successfully!");
+                toast.success("Account created successfully!", {
+                    icon: "✅"
+                });
                 localStorage.setItem("Token", data.user.secret);
-                token = localStorage.getItem("Token");
+                // token = localStorage.getItem("Token");
                 router.push('/');
             } else {
                 toast.error(data.message || "Something went wrong!");
             }
-        } catch (error) {
-            toast.error("An error occurred while creating the account.");
+        } catch (err) {
+            toast.error("An error occurred while creating the account." + err);
+            console.log(err);
         }
         setLoading(false);
     };

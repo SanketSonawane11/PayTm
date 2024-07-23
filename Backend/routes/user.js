@@ -88,7 +88,7 @@ router.post('/signin', async (req, res) => {
     try {
         const { username, password } = req.body;
         const validInput = signinInput.safeParse(req.body);
-        if (!validInput.success) return res.status(411).json({ message: "Enter valid input" });
+        if (!validInput.success) return res.status(411).json({ message: "Invalid input" });
         const user = await User.findOne({ username });
         if (!user) return res.status(401).json({ message: 'Invalid username or password' });
         if (user.password !== password) return res.status(401).json({ message: "Incorrect password" });
