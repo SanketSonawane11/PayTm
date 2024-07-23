@@ -2,32 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.relative {
+    position: relative;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  .absolute {
+    position: absolute;
   }
-}
+  
+  .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .text-base {
+    font-size: 1rem;
+  }
+  
+  .-translate-y-4 {
+    transform: translateY(-1rem);
+  }
+  
+  .bg-white {
+    background-color: white;
+  }
+  
+  .px-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  
+  .text-gray-500 {
+    color: #6b7280;
+  }
+  
+  .text-blue-600 {
+    color: gray;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .p-2 {
+    padding: 0.5rem;
+  }
+  
+  .border {
+    border-width: 1px;
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .focus\:outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  
+  .focus\:ring-2 {
+    box-shadow: 0 0 0 2px var(--tw-ring-color);
+  }
+  
+  .focus\:ring-blue-600 {
+    --tw-ring-color: gray;
+  }
+  

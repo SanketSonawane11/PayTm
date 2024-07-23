@@ -9,7 +9,6 @@ import AuthenticationForm from '../Components/AuthenticationForm'
 
 function page() {
 
-  // const [login, setLogin] = useRecoilState(formState);
   const login = useRecoilValue(formState);
 
   return (
