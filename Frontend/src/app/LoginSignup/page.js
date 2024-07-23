@@ -12,12 +12,12 @@ function page() {
   const login = useRecoilValue(formState);
 
   return (
-    <div className=' flex items-center justify-center w-[100vw] h-[100vh]'>
+    // <div className=' flex items-center justify-center w-[100vw] h-[100vh]'>
       <UiCard>
         <Heading title={login ? "Login" : "Sign Up"} />
         <AuthenticationForm />
       </UiCard>
-    </div>
+    // </div>
   )
 }
 

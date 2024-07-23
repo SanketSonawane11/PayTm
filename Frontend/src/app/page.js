@@ -2,14 +2,18 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function page() {
   const router = useRouter();
 
+  useEffect(() => {
+    if(!localStorage.getItem("Token")) router.push('/LoginSignup')
+  })
+
   return (
     <div>
-      {localStorage.getItem("Token") ? <h1>Welcome to Home</h1> : router.push('/LoginSignup')}
+      <h1>Welcome to Home</h1>
     </div>
   )
 }

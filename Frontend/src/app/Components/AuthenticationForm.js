@@ -11,23 +11,16 @@ function AuthenticationForm() {
 
   const [state, setState] = useRecoilState(formState);
 
-  // const router = useRouter();
-
   function toggleFormSatate() {
     setState(!state);
   }
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("Token")) router.push('/');
-  // }, [router])
-
   return (
-    <div className="w-[30vw] h-full flex items-center justify-center flex-col">
-      <FormContainer>
-        {state ? <LoginForm /> : <SignUpForm />}
-        <button onClick={toggleFormSatate}>{state ? "Don't have an account? Sign-Up" : "Already a user? Sign-In"}</button>
-      </FormContainer>
-    </div>
+    <FormContainer>
+      {state ? <LoginForm /> : <SignUpForm />}
+      <button onClick={toggleFormSatate}>{state ? "Don't have an account? Sign-Up" : "Already a user? Sign-In"}</button>
+    </FormContainer>
+
   )
 }
 
