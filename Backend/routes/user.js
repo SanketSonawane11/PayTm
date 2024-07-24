@@ -90,7 +90,7 @@ router.post('/signin', async (req, res) => {
         const validInput = signinInput.safeParse(req.body);
         if (!validInput.success) return res.status(411).json({ message: "Invalid input" });
         const user = await User.findOne({ username });
-        if (!user) return res.status(401).json({ message: 'Invalid username or password' });
+        if (!user) return res.status(401).json({ message: 'Incorrect Username' });
         if (user.password !== password) return res.status(401).json({ message: "Incorrect password" });
         try {
             const token = jwt.sign({ username }, secret);

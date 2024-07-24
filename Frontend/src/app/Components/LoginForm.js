@@ -34,12 +34,14 @@ function loginForm() {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
+      // console.log(data);
       if (response.ok) {
         toast.success("Logged in successfully!", {
           icon: "✅"
         });
-        localStorage.setItem("Token", data.secret);
-        // token = localStorage.getItem("Token");
+        localStorage.setItem("Token", data.token);
+        // const token = localStorage.getItem("Token");
+        // console.log(token);
         router.push('/');
       } else {
         toast.error(data.message || "Something went wrong!");
