@@ -94,7 +94,9 @@ router.post('/signin', async (req, res) => {
         if (user.password !== password) return res.status(401).json({ message: "Incorrect password" });
         try {
             const token = jwt.sign({ username }, secret);
-            res.status(200).json({ message: "Logged in successfully", token: token });
+            res.status(200).json({
+                message: "Logged in successfully", token: token
+            });
         }
         catch (err) {
             return res.status(411).json({ message: `Error genereting token\n${err}` })
@@ -102,6 +104,29 @@ router.post('/signin', async (req, res) => {
     }
     catch (err) {
         res.status(411).json({ message: `Error ${err}` });
+    }
+});
+
+router.get('/mydata', verifyUser, async (req, res) => {
+    const username = req.username;
+    try {
+        const user = await User.findOne({ username });
+        if (user) {
+            res.json({
+                email: user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                username: user.username,
+                role: user.role
+            });
+        }
+        else {
+            res.status(404).json({ message: "User not found" });
+        }
+    }
+    catch (err) {
+        res.status(404).json({ message: "Server Error. Try again after sometime" });
+        console.log(err);
     }
 });
 

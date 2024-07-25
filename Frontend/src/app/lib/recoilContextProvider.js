@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot } from "recoil";
 
 export default function RecoilContextProvider({ children }) {
-    return <RecoilRoot>{children}</RecoilRoot>
-};
+    return <RecoilRoot>{children}</RecoilRoot>;
+}
