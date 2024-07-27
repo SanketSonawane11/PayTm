@@ -9,9 +9,8 @@ require('dotenv').config();
 
 const app = express();
 
-// Set up CORS
 const corsOptions = {
-    origin: '*', 
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -19,11 +18,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-// Connect to MongoDB
 connectDb();
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/account", accountRouter);
 
-// Export the serverless handler
-module.exports.handler = serverless(app); 
+module.exports = serverless(app);
