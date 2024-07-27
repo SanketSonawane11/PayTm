@@ -15,7 +15,7 @@ function FormField({ label, type, placeholder, value, onChange, name }) {
     };
 
     return (
-        <div className="relative w-[60vw] min-w-[50%] md:min-w-[40%] md:w-[20vw] my-4">
+        <div className="relative w-[60vw] min-w-[50%] md:min-w-[40%] md:w-[100%] my-4">
             <label
                 className={`absolute top-2 left-2 px-1 transition-all duration-300 bg-white ${isFocused || value ? '-translate-y-6 text-sm text-gray-500' : 'text-base text-gray-500'}`}
             >

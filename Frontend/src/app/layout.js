@@ -5,13 +5,13 @@ import RecoilContextProvider from "./lib/recoilContextProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "PayTm",
-  description: "By Sanket",
+  title: "Recoil and Backend",
+  description: "...",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressContentEditableWarning suppressHydrationWarning>
       <body className={inter.className}>
         <RecoilContextProvider>{children}</RecoilContextProvider>
       </body>

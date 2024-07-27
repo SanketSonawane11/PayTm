@@ -1,34 +1,39 @@
-import { useSetRecoilState } from 'recoil';
-import { userData } from '../atoms/userAtom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { userState } from '../atoms/authFormAtom';
+import axios from 'axios';
 
 export const useFetchAndSetUserData = () => {
-    const setUser = useSetRecoilState(userData);
+
+    const [user, setUser] = useRecoilState(userState);
 
     const fetchUserData = async (token) => {
-        console.log(`Token: ${token} is received and sent`);
         try {
-            const response = await fetch('http://localhost:4000/api/v1/users/mydata', {
-                method: 'GET',
+            const userResponse = await axios.get('http://localhost:4000/api/v1/users/mydata', {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': token
-                }
+                    'Authorization': token,
+                },
             });
-            const data = await response.json();
-            if (response.ok) {
-                setUser({
-                    email: data.email,
-                    firstName: data.firstName,
-                    lastName: data.lastName,
-                    username: data.username,
-                    role: data.role
+
+            const balanceResponse = await axios.get('http://localhost:4000/api/v1/account/getbalance', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token,
+                },
+            });
+
+            if (userResponse.data && balanceResponse.data) {
+                const formattedBalance = parseFloat(balanceResponse.data.Balance).toFixed(2);
+                await setUser({
+                    userInfo: userResponse.data,
+                    userBalance: formattedBalance,
                 });
-                console.log("User Data Set in Recoil:", data);
+                console.log(user.userInfo.firstName);
             } else {
-                console.log("Failed to fetch user data:", data.message);
+                console.log("Failed to fetch user data or balance data");
             }
         } catch (err) {
-            console.log("Error fetching user data:", err);
+            console.log("Error fetching user data or balance data:", err);
         }
     };
 

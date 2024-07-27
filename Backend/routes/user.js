@@ -30,6 +30,7 @@ const updateProfile = z.object({
     password: z.string().min(6).max(1024)
 });
 
+//Routes
 router.post('/signup', async (req, res) => {
     try {
         const { username, password, firstName, lastName, role, email } = req.body;
@@ -95,7 +96,15 @@ router.post('/signin', async (req, res) => {
         try {
             const token = jwt.sign({ username }, secret);
             res.status(200).json({
-                message: "Logged in successfully", token: token
+                message: "Logged in successfully", token: token,
+                user:
+                {
+                    username: user.username,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    role: user.role,
+                    email: user.email
+                }
             });
         }
         catch (err) {
@@ -119,13 +128,11 @@ router.get('/mydata', verifyUser, async (req, res) => {
                 username: user.username,
                 role: user.role
             });
-        }
-        else {
+        } else {
             res.status(404).json({ message: "User not found" });
         }
-    }
-    catch (err) {
-        res.status(404).json({ message: "Server Error. Try again after sometime" });
+    } catch (err) {
+        res.status(500).json({ message: "Server Error. Try again after sometime" });
         console.log(err);
     }
 });
@@ -149,7 +156,7 @@ router.post('/updateprofile', verifyUser, async (req, res) => {
     }
 });
 
-router.get('/user/bulk', verifyUser, async (req, res) => {
+router.get('/bulk', verifyUser, async (req, res) => {
     const filter = req.query.filter || "";
     try {
         const users = await User.find({

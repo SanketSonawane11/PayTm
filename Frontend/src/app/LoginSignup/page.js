@@ -7,7 +7,6 @@ import { useRecoilValue } from "recoil";
 import { formState } from "../atoms/authFormAtom";
 import AuthenticationForm from "../Components/AuthenticationForm";
 import { Boxes } from "../Components/ui/background-boxes";
-import { cn } from "../lib/utils";
 
 function page() {
   const login = useRecoilValue(formState);
@@ -18,7 +17,7 @@ function page() {
       <Boxes />
       <div className=" flex items-center justify-center w-[100vw] h-[100vh]">
         <UiCard>
-          <Heading title={login ? "Login" : "Sign Up"} />
+          <Heading title={login ? "Login" : "Sign Up"} color="#003554" />
           <AuthenticationForm />
         </UiCard>
       </div>

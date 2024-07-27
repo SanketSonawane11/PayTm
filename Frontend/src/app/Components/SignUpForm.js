@@ -5,8 +5,12 @@ import Spinner from './Spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
+import { useFetchAndSetUserData } from '../lib/userUtils';
 
 function SignUpForm() {
+
+    const fetchAndSet = useFetchAndSetUserData();
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -29,14 +33,14 @@ function SignUpForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.password !== formData.confirmPassword) {
-            console.log("Password Doesn't match");
+            toast.error("Re-entered password doesn't match!", {
+                icon: "❗️"
+            });
             return;
         }
         setLoading(true);
         await createUser(formData);
     };
-
-    let token;
 
     const createUser = async () => {
         try {
@@ -62,9 +66,10 @@ function SignUpForm() {
                 toast.success("Account created successfully!", {
                     icon: "✅"
                 });
-                localStorage.setItem("Token", data.user.secret);
-                // token = localStorage.getItem("Token");
-                router.push('/');
+                const token = data.user.secret;
+                localStorage.setItem("Token", token);
+                await fetchAndSet(token);
+                router.push('/Home');
             } else {
                 toast.error(data.message || "Something went wrong!");
             }
@@ -74,7 +79,6 @@ function SignUpForm() {
         }
         setLoading(false);
     };
-
 
     return (
         <div className='w-auto h-full flex items-center justify-center flex-col'>
