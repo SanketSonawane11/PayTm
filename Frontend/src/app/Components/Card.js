@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardHeader, Image, CardBody, user } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-export default function userCard({ username, firstName, lastName }) {
+export default function CardComponent({ username, firstName, lastName }) {
 
     const router = useRouter();
 

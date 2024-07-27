@@ -8,7 +8,7 @@ import { formState } from "../atoms/authFormAtom";
 import AuthenticationForm from "../Components/AuthenticationForm";
 import { Boxes } from "../Components/ui/background-boxes";
 
-function page() {
+function Page() {
   const login = useRecoilValue(formState);
 
   return (
@@ -25,4 +25,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
