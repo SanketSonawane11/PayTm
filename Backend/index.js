@@ -41,7 +41,7 @@ require('dotenv').config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: '*', // Adjust this as needed for your deployment
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -49,6 +49,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
+// Connect to the database
 connectDb();
 
 // Set up routes
@@ -56,4 +57,4 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/account", accountRouter);
 
 // Export the serverless handler
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
