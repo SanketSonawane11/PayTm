@@ -35,7 +35,7 @@ function ProfilePage() {
     };
 
     fetchUsers();
-  }, [filter, user.userInfo.username]);
+  }, [filter, user.userInfo.username, backendUrl]);
 
   if (!user) {
     return <div>Loading...</div>;
