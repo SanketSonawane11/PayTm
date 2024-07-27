@@ -1,0 +1,20 @@
+.loader {
+  height: 30px;
+  width: 100px;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, gray 90%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fbfef9 90%, #0000) center/20px 20px,
+    radial-gradient(farthest-side, gray 90%, #0000) right/20px 20px;
+  background-repeat: no-repeat;
+  animation: l14 2s infinite;
+}
+
+@keyframes l14 {
+  0%,
+  100% {
+    background-position: left, center, right;
+  }
+  50% {
+    background-position: right, center, left;
+  }
+}
