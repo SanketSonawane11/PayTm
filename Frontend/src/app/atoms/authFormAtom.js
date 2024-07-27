@@ -1,6 +1,10 @@
 import { atom } from 'recoil';
 
 const localStorageEffect = (key) => ({ setSelf, onSet }) => {
+    if (typeof window === 'undefined') {
+        return;
+    }
+
     const savedValue = localStorage.getItem(key);
     if (savedValue != null) {
         try {
