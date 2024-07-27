@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import Heading from './Components/Heading';
 import { useRecoilState } from 'recoil';
 import { userState, formState } from './atoms/authFormAtom';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function HomePage() {
   const router = useRouter();
