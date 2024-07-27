@@ -9,7 +9,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const corsOptions = {
-    origin: '',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
