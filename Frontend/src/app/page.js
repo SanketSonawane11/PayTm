@@ -24,6 +24,7 @@ function HomePage() {
   };
 
   useEffect(() => {
+
     smartRouter();
     router.push('/Home');
   }, [loggedIn, router]);
@@ -36,7 +37,7 @@ function HomePage() {
     <div>
       <AppHeader />
       <Heading title="Loading the app..." />
-    </div>
+    </div >
   );
 }
 

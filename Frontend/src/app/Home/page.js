@@ -57,14 +57,15 @@ function ProfilePage() {
             />
           </div>
           <div className="w-fit px-5 grid gap-4 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
-            {/* <UserProfile /> */}
-            {Array.isArray(users) && users.map((user) => (
-              <CardComponent key={user._id} username={user.username} firstName={user.firstName} lastName={user.lastName} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+            {
+              Array.isArray(users) && users.map((user) => (
+                <CardComponent key={user._id} username={user.username} firstName={user.firstName} lastName={user.lastName} />
+              ))
+            }
+          </div >
+        </div >
+      </div >
+    </div >
   );
 }
 

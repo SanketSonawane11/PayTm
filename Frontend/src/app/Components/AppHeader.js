@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import { userState } from '../atoms/authFormAtom';
 import { useRouter } from 'next/navigation';
-import Spinner from './Spinner';
 import useSmartRouter from '../lib/smartRouter';
 
 function AppHeader() {

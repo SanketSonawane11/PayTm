@@ -16,6 +16,7 @@ export const useFetchAndSetUserData = () => {
             });
 
             const balanceResponse = await axios.get(`http://localhost:4000/api/v1/account/getbalance`, {
+
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': token,
