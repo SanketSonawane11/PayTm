@@ -4,18 +4,19 @@ import axios from 'axios';
 
 export const useFetchAndSetUserData = () => {
 
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND;
     const [user, setUser] = useRecoilState(userState);
 
     const fetchUserData = async (token) => {
         try {
-            const userResponse = await axios.get('http://localhost:4000/api/v1/users/mydata', {
+            const userResponse = await axios.get(`${backendUrl}/api/v1/users/mydata`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': token,
                 },
             });
 
-            const balanceResponse = await axios.get('http://localhost:4000/api/v1/account/getbalance', {
+            const balanceResponse = await axios.get(`${port}/api/v1/account/getbalance`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': token,

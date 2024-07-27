@@ -14,12 +14,13 @@ function ProfilePage() {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
   console.log(user.userInfo.username);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND;
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/users/bulk?filter=${filter}`, {
+        const response = await axios.get(`${backendUrl}/api/v1/users/bulk?filter=${filter}`, {
           headers: {
             'authorization': token,
           }

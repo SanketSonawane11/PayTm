@@ -26,27 +26,3 @@ export default function CardComponent({ username, firstName, lastName }) {
         </Card>
     );
 }
-
-
-// calc(100%_-_5px)
-
-{/* <Card
-            isFooterBlurred
-            radius="lg"
-            className="border-none w-fit m-[2vw] rounded-3xl flex items-center justify-center"
-        >
-            <Image
-                alt="Woman listing to music"
-                className="object-cover"
-                height={280}
-                src="https://nextui.org/images/hero-card.jpeg"
-                width={280}
-            />
-            <CardFooter className="justify-between bg-black/40 bg-blend-exclusion before:bg-white/80 border-white/80 border-1 overflow-hidden absolute before:rounded-xl rounded-xl bottom-1 h-[25%] w-[90%] shadow-small ml-1 z-10">
-                <p className="text-tiny text-white font-bold">Available soon.
-                    lorem21</p>
-                <Button className="text-[0.8vw] w-[50%] text-white flex items-center justify-center" variant="flat" color="default" radius="lg" size="sm">
-                    Notify me
-                </Button>
-            </CardFooter>
-        </Card> */}

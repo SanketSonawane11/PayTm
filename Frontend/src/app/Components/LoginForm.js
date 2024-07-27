@@ -11,7 +11,7 @@ import { useFetchAndSetUserData } from '../lib/userUtils';
 function LoginForm() {
   const router = useRouter();
   const fetchAndUpdate = useFetchAndSetUserData();
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND;
 
   const [formData, setFormData] = useState({
     username: '',
@@ -30,7 +30,7 @@ function LoginForm() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:4000/api/v1/users/signin', {
+      const response = await fetch(`${backendUrl}/api/v1/users/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

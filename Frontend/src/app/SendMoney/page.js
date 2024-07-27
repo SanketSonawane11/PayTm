@@ -12,6 +12,7 @@ const Page = () => {
     const name = searchParams.get('name');
     const username = searchParams.get('username');
     const [amount, setAmount] = useState(0);
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND;
 
     const handleTransfer = async () => {
         if (amount <= 0) {
@@ -20,7 +21,7 @@ const Page = () => {
         }
         try {
             await axios.post(
-                'http://localhost:4000/api/v1/account/transfer',
+                `${backendUrl}/api/v1/account/transfer`,
                 {
                     to: username,
                     amount,

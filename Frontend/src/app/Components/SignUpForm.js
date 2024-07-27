@@ -10,7 +10,7 @@ import { useFetchAndSetUserData } from '../lib/userUtils';
 function SignUpForm() {
 
     const fetchAndSet = useFetchAndSetUserData();
-
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND;
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -44,7 +44,7 @@ function SignUpForm() {
 
     const createUser = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/v1/users/signup', {
+            const response = await fetch(`${backendUrl}/api/v1/users/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
