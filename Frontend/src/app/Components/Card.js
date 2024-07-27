@@ -7,7 +7,7 @@ export default function userCard({ username, firstName, lastName }) {
     const router = useRouter();
 
     return (
-        <Card className="hover:bg-white/80 text-white overflow-hidden hover:text-black/70 hover:font-medium hover:rounded-xl flex items-center justify-center gap-3 transition-all ease-out duration-100 md:min-w-[15rem] max-w-[75%] md:w-fit md:max-h-fit pt-3 m-[1.5vw] bg-white/20 rounded-2xl">
+        <Card className="hover:bg-white/80 text-white overflow-hidden hover:text-black/70 hover:font-medium hover:rounded-xl flex items-center justify-center gap-3 transition-all ease-out duration-100 md:min-w-fit max-w-[75%] md:w-fit md:max-h-fit pt-3 m-[1.5vw] bg-white/20 rounded-2xl">
             <CardHeader className="pb-0 w-[100%] pt-2 px-4 flex-col gap-2 items-start">
                 <p className="text-tiny font-bold">{firstName} {lastName}</p>
                 <small className="text-[15px]">{`@${username}`}</small>

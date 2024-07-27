@@ -13,6 +13,7 @@ function ProfilePage() {
   const user = useRecoilValue(userState);
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
+  console.log(user.userInfo.username);
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
@@ -23,7 +24,10 @@ function ProfilePage() {
             'authorization': token,
           }
         });
-        setUsers(response.data.user);
+        console.log(response.data)
+        const filteredUsers = response.data.user.filter(users => users.username !== user.userInfo.username);
+        console.log(filteredUsers);
+        setUsers(filteredUsers);
       } catch (error) {
         console.error("Error fetching users:", error);
       }
