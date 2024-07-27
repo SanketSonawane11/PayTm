@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSearchParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { useFetchAndSetUserData } from '../lib/userUtils';
+import { toast, ToastContainer } from 'react-toastify';
 
 function page() {
 
@@ -48,18 +49,25 @@ function page() {
                                 />
                             </div>
                             <button onClick={async () => {
-                                await axios.post("http://localhost:4000/api/v1/account/transfer", {
-                                    to: username,
-                                    amount
-                                }, {
-                                    headers: {
-                                        Authorization: localStorage.getItem("Token")
-                                    }
-                                });
-                                await updateData(localStorage.getItem("Token"));
+                                try{
+                                    await axios.post("http://localhost:4000/api/v1/account/transfer", {
+                                        to: username,
+                                        amount
+                                    }, {
+                                        headers: {
+                                            Authorization: localStorage.getItem("Token")
+                                        }
+                                    });
+                                    await updateData(localStorage.getItem("Token"));
+                                    toast.success(`Rs.${amount} transferred successfully`);
+                                }
+                                catch(err){
+                                    toast.error;(err)
+                                }
                             }} class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
                                 Initiate Transfer
                             </button>
+                            <ToastContainer/>
                         </div>
                     </div>
                 </div>
