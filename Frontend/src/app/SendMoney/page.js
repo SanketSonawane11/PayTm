@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useFetchAndSetUserData } from '../lib/userUtils';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -40,7 +40,7 @@ const Page = () => {
     };
 
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             <div className="flex justify-center h-screen bg-gray-100">
                 <div className="h-full flex flex-col justify-center">
                     <div className="border h-min text-card-foreground max-w-md p-4 space-y-8 w-96 bg-white shadow-lg rounded-lg">
@@ -82,7 +82,7 @@ const Page = () => {
                 </div>
             </div>
             <ToastContainer />
-        </>
+        </Suspense>
     );
 };
 
