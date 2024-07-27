@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.6",
+    "autoprefixer": "^10.4.19",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
-    "framer-motion": "^11.3.17",
+    "framer-motion": "^11.3.19",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/node": "20.14.12",
     "@types/react": "18.3.3",
+    "@types/tailwindcss": "^3.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

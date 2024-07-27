@@ -17,11 +17,11 @@ import useSmartRouter from "../lib/smartRouter";
 function Profile() {
 
     const user = useRecoilValue(userState);
-    // const smartRouter = useSmartRouter();
+    const smartRouter = useSmartRouter();
 
-    // useEffect(() => {
-    //     smartRouter();
-    // }, []);
+    useEffect(() => {
+        smartRouter();
+    }, []);
 
     return (
         <div className="bg-slate-950">
