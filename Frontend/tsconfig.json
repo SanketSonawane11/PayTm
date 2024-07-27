@@ -1,66 +1,38 @@
-// {
-//   "compilerOptions": {
-//     "lib": [
-//       "dom",
-//       "dom.iterable",
-//       "esnext"
-//     ],
-//     "allowJs": true,
-//     "skipLibCheck": true,
-//     "strict": false,
-//     "noEmit": true,
-//     "incremental": true,
-//     "module": "esnext",
-//     "esModuleInterop": true,
-//     "moduleResolution": "node",
-//     "resolveJsonModule": true,
-//     "isolatedModules": true,
-//     "jsx": "preserve",
-//     "plugins": [
-//       {
-//         "name": "next"
-//       }
-//     ]
-//   },
-//   "include": [
-//     "next-env.d.ts",
-//     ".next/types/**/*.ts",
-//     "**/*.ts",
-//     "**/*.tsx"
-//   ],
-//   "exclude": [
-//     "node_modules"
-//   ]
-// }
 {
   "compilerOptions": {
-    "target": "es5", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ], /* Specify library files to be included in the compilation. */
-    "allowJs": true, /* Allow JavaScript files to be compiled. */
-    "skipLibCheck": true, /* Skip type checking of declaration files. */
-    "strict": false, /* Enable all strict type-checking options. */
-    "noEmit": true, /* Do not emit outputs. */
-    "incremental": true, /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
-    "module": "esnext", /* Specify what module code is generated. */
-    "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. */
-    "moduleResolution": "node", /* Specify how TypeScript looks up a file from a given module specifier. */
-    "resolveJsonModule": true, /* Enable importing .json files. */
-    "isolatedModules": true, /* Ensure that each file can be safely transpiled without relying on other imports. */
-    "jsx": "preserve", /* Specify JSX code generation for React. */
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".", /* Add this line */
+    "paths": {
+      "@/*": ["./src/*"] /* Add this line */
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js", /* Include JavaScript files */
+    "**/*.jsx", /* Include JSX files */
     ".next/types/**/*.ts"
   ],
   "exclude": [
