@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 
 const corsOptions = {
-    origin: '*', 
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -23,5 +23,4 @@ connectDb();
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/account", accountRouter);
 
-// Export the serverless handler as 'handler'
-module.exports.handler = serverless(app);
+module.exports = serverless(app);
