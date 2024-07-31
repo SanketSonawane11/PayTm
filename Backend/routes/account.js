@@ -56,7 +56,6 @@ router.post('/transfer', verifyUser, async (req, res) => {
     }
 
     //Transfer of money
-
     // Deducting money from sender's account
     await Account.updateOne({ userId },
         {

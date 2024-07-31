@@ -8,6 +8,7 @@ import AppHeader from '../Components/AppHeader';
 import FormField from '../Components/FormField';
 import axios from 'axios';
 import useSmartRouter from '../lib/smartRouter';
+import Spinner from '../Components/Spinner';
 
 function ProfilePage() {
   const user = useRecoilValue(userState);
@@ -38,7 +39,7 @@ function ProfilePage() {
   }, [filter]);
 
   if (!user) {
-    return <div>Loading...</div>;
+    return <div className='w-full h-[100vh] flex items-center justify-center'><Spinner /></div>;
   }
 
   return (

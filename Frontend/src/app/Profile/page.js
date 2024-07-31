@@ -13,15 +13,19 @@ import { RiAdminFill } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { InfiniteMovingCards } from "../Components/ui/infinite-moving-cards";
 import useSmartRouter from "../lib/smartRouter";
+import Spinner from "../Components/Spinner";
 
 function Profile() {
 
     const user = useRecoilValue(userState);
+
     const smartRouter = useSmartRouter();
 
     useEffect(() => {
         smartRouter();
-    }, []);
+    }, [user]);
+
+    if (!user) return <div className="w-full h-[100vh] flex items-center justify-center"><Spinner /></div>
 
     return (
         <div className="bg-slate-950">

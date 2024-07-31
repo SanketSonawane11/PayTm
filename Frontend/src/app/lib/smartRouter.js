@@ -6,7 +6,7 @@ function useSmartRouter() {
 
     const smartRedirect = () => {
         if (localStorage.getItem('Token')) return;
-        else router.push('/LoginSignup');
+        router.push('/LoginSignup');
     }
 
     return smartRedirect;

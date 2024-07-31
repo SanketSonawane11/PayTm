@@ -32,12 +32,12 @@ const updateProfile = z.object({
 
 //Routes
 router.post('/signup', async (req, res) => {
+    const { username, password, firstName, lastName, role, email } = req.body;
+
+    const validInput = signUpInput.safeParse(req.body);
+    if (!validInput.success) return res.status(411).json({ message: "Invalid input" });
+
     try {
-        const { username, password, firstName, lastName, role, email } = req.body;
-
-        const validInput = signUpInput.safeParse(req.body);
-        if (!validInput.success) return res.status(411).json({ message: "Invalid input" });
-
         // Checking if user with the same username or email already exists {use $or}
         const userExist = await User.findOne({ $or: [{ username }, { email }] });
 
